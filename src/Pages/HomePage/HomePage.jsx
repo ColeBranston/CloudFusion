@@ -5,11 +5,11 @@ import Newsletter from './Newsletter';
 import Cards from './Cards';
 import Footer from './Footer';
 
-const HomePage = ({links}) =>{
+const HomePage = ({links1, links2}) =>{
     
     return(
         <>
-            <Navbar links = {links}/>
+            <Navbar links1 = {links1} links2 = {links2} />
             <Hero />
             <Analytics />
             <Newsletter />
