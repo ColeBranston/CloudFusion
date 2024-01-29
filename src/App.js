@@ -1,6 +1,7 @@
 import {React, useState} from 'react'
 import HomePage from './Pages/HomePage/HomePage';
 import TeamsPage from "./Pages/TeamsPage/TeamsPage";
+import SignInPage from "./Pages/SignInPage/SignIn";
 
 function App() {
   const [page, setPage] = useState("Homepage")
@@ -12,10 +13,15 @@ function App() {
     setPage("Teams")
     
   };
+  const goSignInPage = () => {
+    setPage("SignIn")
+    
+  };
 {/* <HomePage links = {goTeamsPage} */}
   return (
     <div className="App">
-      {page === "Homepage"? <HomePage links = {goTeamsPage} />:<TeamsPage returnHome = {returnHome}/>}
+      {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage}/>: page==="Teams"? <TeamsPage returnHome = {returnHome}/>: <SignInPage returnHome={returnHome}/>}
+
     </div>
   );
 }

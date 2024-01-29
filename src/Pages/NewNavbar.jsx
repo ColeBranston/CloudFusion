@@ -14,7 +14,7 @@ const Navbar = ({returnHome}) => {
 
             <ul className = 'hidden md:flex'>
                 <button className = 'mr-5 ml-5 ' onClick={returnHome}> Home </button>
-                <button className = 'mr-5 ml-5 '> Signup/Login </button>
+                <button className = 'mr-5 ml-5 ' onClick={returnHome}> Signup/Login </button>
                 <button className = 'mr-5 ml-5 '> Settings </button>
             </ul>
 
