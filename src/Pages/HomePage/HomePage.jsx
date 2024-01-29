@@ -5,10 +5,11 @@ import Newsletter from './Newsletter';
 import Cards from './Cards';
 import Footer from './Footer';
 
-const HomePage = () =>{
+const HomePage = ({links}) =>{
+    
     return(
         <>
-            <Navbar />
+            <Navbar links = {links}/>
             <Hero />
             <Analytics />
             <Newsletter />

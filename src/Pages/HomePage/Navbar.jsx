@@ -1,22 +1,21 @@
 import React, {useState} from 'react';
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai';
 
-const Navbar = () => {
+const Navbar = ({links}) => {
 
     const [nav,setNav] = useState(true);
 
     const handleNav = () => {
         setNav(!nav)
     };
-
     return (
         <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white'>
             <h1 className = 'w-full text-3xl font-bold text-[#00df9a]'>CloudFusion.</h1>
 
-            <ul className = 'hidden md:flex'>
-                <li className ='p-4'> Team </li>
-                <li className ='p-4'> Signup/Login </li>
-                <li className ='p-4'> Settings </li>
+            <ul className = 'hidden md:flex '>
+                <button className = 'mr-5 ml-5 ' onClick={links}> Team </button>
+                <button className = 'mr-5 ml-5 '> Signup/Login </button>
+                <button className = 'mr-5 ml-5 '> Settings </button>
             </ul>
 
             <div onClick={handleNav} className='block md:hidden'>
