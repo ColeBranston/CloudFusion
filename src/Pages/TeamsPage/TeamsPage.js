@@ -45,13 +45,15 @@ const TeamsPage = ({returnHome}) => {
     return(
         
                 <div className="flex">
-                    <div className=" w-[25%] bg-white">
-                        <div className="ml-[12.5%] mt-[5%] rounded-xl justify-center w-3/4 bg-gray-300">
-                            <div className="flex justify-center mb-12">
-                                <button className=" w-1/2 mt-[5%]" onClick={returnHome}> Return Home</button>
-                            </div>
+                    <div className=" w-[25%] bg-gray-100">
+                        <div onClick={returnHome} className="hover:cursor-pointer flex ml-[25%] items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
+                                <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[100%] h-[100%] my-auto"/><span className="ml-[5%]">Back</span></button>
+                        </div>
+
+                        <div className="position-fixed ml-[12.5%] mt-[30%] rounded-xl justify-center w-3/4 bg-[#F2F2F2] opacity-[0.7]">
+                            <h2>Filters</h2>
                             <div>
-                                <div className="flex justify-center mt-3"> 
+                                <div className="flex justify-center pt-4"> 
                                     <input type="checkbox" className="size-6"></input>
                                     <p className="ml-5">This is a filter</p>
                                 </div>
@@ -81,7 +83,7 @@ const TeamsPage = ({returnHome}) => {
                     </div>
             
                     {people?.length > 0 ? (
-                        <div className='overflow-hidden h-screen w-[75%]  bg-white flex justify-center items-center flex-wrap'>
+                        <div className='overflow-hidden h-screen w-[75%] flex justify-center items-center flex-wrap bg-white'>
                             {people.map((person) => (
                             <Card person={person} />
                         ))}
