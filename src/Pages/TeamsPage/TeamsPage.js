@@ -44,38 +44,39 @@ const TeamsPage = ({returnHome}) => {
     // }, [])
     return(
         
-                <div className="flex">
-                    <div className=" w-[25%] bg-gray-100">
-                        <div onClick={returnHome} className="hover:cursor-pointer flex ml-[25%] items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
-                                <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[100%] h-[100%] my-auto"/><span className="ml-[5%]">Back</span></button>
+                <div className="flex bg-white h-[200rem]">
+                    <div className="w-[25%] bg-gray-q100 animate-[flyFromLeft_1s_ease-out]">
+                        <div onClick={returnHome} className="hover:cursor-pointer flex mx-auto items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
+                                <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Back</span></button>
                         </div>
-
-                        <div className="position-fixed ml-[12.5%] mt-[30%] rounded-xl justify-center w-3/4 bg-[#F2F2F2] opacity-[0.7]">
-                            <h2>Filters</h2>
+                        <div className="position-fixed mx-auto mt-[30%] rounded-xl justify-center w-3/4 bg-[#F2F2F2] opacity-[0.7]">
+                            <h2 className="text-[1.75vw]">Filters</h2>
                             <div>
-                                <div className="flex justify-center pt-4"> 
-                                    <input type="checkbox" className="size-6"></input>
-                                    <p className="ml-5">This is a filter</p>
-                                </div>
-                                <div className="flex justify-center mt-3"> 
-                                    <input type="checkbox" className="size-6"></input>
-                                    <p className="ml-5">This is a filter</p>
-                                </div>
-                                <div className="flex justify-center mt-3"> 
-                                    <input type="checkbox" className="size-6"></input>
-                                    <p className="ml-5">This is a filter</p>
-                                </div>
-                                <div className="flex justify-center mt-3"> 
-                                    <input type="checkbox" className="size-6"></input>
-                                    <p className="ml-5">This is a filter</p>
-                                </div>
-                                <div className="flex justify-center mt-3"> 
-                                    <input type="checkbox" className="size-6"></input>
-                                    <p className="ml-5">This is a filter</p>
-                                </div>
-                                <div className="flex justify-center mt-3"> 
-                                    <input type="checkbox" className="size-6"></input>
-                                    <p className="ml-5">This is a filter</p>
+                                <div className="">
+                                    <div className="flex justify-left pt-4"> 
+                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 justify-left text-[1.3vw]">Jack Branston</p>
+                                    </div>
+                                    <div className="flex justify-left mt-3"> 
+                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 text-[1.3vw]">Cole Branston</p>
+                                    </div>
+                                    <div className="flex justify-left mt-3"> 
+                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 text-[1.3vw]">Obaid</p>
+                                    </div>
+                                    <div className="flex justify-left mt-3"> 
+                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 text-[1.3vw]">Ganesh</p>
+                                    </div>
+                                    <div className="flex justify-left mt-3"> 
+                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 text-[1.3vw]">Rad</p>
+                                    </div>
+                                    <div className="flex justify-left mt-3"> 
+                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 text-[1.3vw]">Shivam</p>
+                                    </div>
                                 </div>
                                 <br />
                             </div>
@@ -83,7 +84,7 @@ const TeamsPage = ({returnHome}) => {
                     </div>
             
                     {people?.length > 0 ? (
-                        <div className='overflow-hidden h-screen w-[75%] flex justify-center items-center flex-wrap bg-white'>
+                        <div className='h-screen w-[75%] flex justify-center items-center flex-wrap bg-white'>
                             {people.map((person) => (
                             <Card person={person} />
                         ))}
