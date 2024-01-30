@@ -11,11 +11,12 @@ module.exports = {
         appear: {
           '0%': {opacity: 0},
           '100%': {opacity: 1}
-        }
+        },
       },
       animation: {
         flyFromLeft:'flyFromLeft', // Use "forwards" to retain the final state
-        appear:'appear'
+        appear:'appear',
+        slideDown:'slideDown'
       }
     },
   },
