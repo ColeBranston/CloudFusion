@@ -8,14 +8,14 @@ import Footer from './Footer';
 const HomePage = ({links1, links2}) =>{
     
     return(
-        <>
+        <div className='overflow-auto h-screen bg-[#000300]'>
             <Navbar links1 = {links1} links2 = {links2} />
             <Hero />
             <Analytics />
             <Newsletter />
             <Cards />
             <Footer /> 
-        </>
+        </div>
     );
 }
 export default HomePage;

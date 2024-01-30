@@ -1,13 +1,10 @@
 
 
 .person {
-  width: 32.5%;
-  height: 30%;
-  margin: 1.5rem;
+
 
   position: relative;
   border-radius: 12px;
-  overflow: hidden;
   border: none;
 
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
@@ -37,7 +34,6 @@ h2{
   }
 
 .person div:nth-of-type(1) {
-  position: relative;
   padding: 16px;
   width: 100%;
   opacity: 1;
@@ -52,7 +48,6 @@ h2{
 
 .person div:nth-of-type(2) {
   width: 100%;
-  height: 100%;
 }
 
 .person div:nth-of-type(3) {
@@ -60,7 +55,6 @@ h2{
   background-color: #343739;
   padding: 16px 24px 24px 24px;
 
-  position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
@@ -75,14 +69,8 @@ h2{
   color: #f0f0f0;
 }
 
-.person div:nth-of-type(3) h3 {
-  margin-top: 5px;
-  font-family: "Roboto Slab", serif;
-  color: #f9d3b4;
-}
 
 .person:hover div:nth-of-type(2) {
-  height: 100%;
   opacity: 0.3;
 }
 

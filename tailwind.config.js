@@ -7,10 +7,15 @@ module.exports = {
         flyFromLeft: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0%)' }
+        },
+        appear: {
+          '0%': {opacity: 0},
+          '100%': {opacity: 1}
         }
       },
       animation: {
         flyFromLeft:'flyFromLeft', // Use "forwards" to retain the final state
+        appear:'appear'
       }
     },
   },
