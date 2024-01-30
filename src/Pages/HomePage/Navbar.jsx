@@ -24,7 +24,7 @@ const Navbar = ({links1,links2}) => {
             <div className={!nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
                 <ul className='pt-24 uppercase p-4 border-b border-gray-600'>
                 <h1 className = 'w-full text-3xl font-bold text-[#00df9a] m-4'>CloudFusion.</h1>
-                    <li className ='p-4 border-b border-gray-600'> Team </li>
+                    <li className ='p-4 border-b border-gray-600' onClick={links1}> Team </li>
                     <li className ='p-4 border-b border-gray-600'> Signup/Login </li>
                     <li className ='p-4'> Settings </li>
                 </ul>
