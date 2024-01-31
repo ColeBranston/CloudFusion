@@ -17,6 +17,9 @@ function App() {
     setPage("SignIn")
     
   };
+  var register = () =>{
+    setPage('Register')
+  }
 {/* <HomePage links = {goTeamsPage} */}
   return (
     <div className="App">

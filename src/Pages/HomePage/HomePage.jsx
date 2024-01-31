@@ -8,7 +8,7 @@ import Footer from './Footer';
 const HomePage = ({links1, links2}) =>{
     
     return(
-        <div className='overflow-auto h-screen bg-[#000300]'>
+        <div className='overflow-auto h-screen bg-white'>
             <Navbar links1 = {links1} links2 = {links2} />
             <Hero />
             <Analytics />

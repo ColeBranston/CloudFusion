@@ -1,10 +1,14 @@
 import bg from "../../Assets/image.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { HiArrowSmallLeft } from "react-icons/hi2";
+import Register from "./Register"
+import { useState } from 'react'
 
-const SignIn = ({returnHome}) =>{
-    
+const SignIn = ({returnHome}) => {
+    var [page, setPage] = useState("");
     return(
+        <>
+        {page == ""? 
         <div className='w-full h-screen flex items-start'> 
             <div className='relative w-1/2 h-full flex flex-col'>
                 <div className='absolute top-[20%] left-[10%] flex-col'>
@@ -15,7 +19,7 @@ const SignIn = ({returnHome}) =>{
             </div>
             <div className='w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between items-center'>
                 
-                <h1 className='w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold'>CloudFusion.</h1>
+                <h1 className='w-full max-w-[500px] mx-auto text-xl text-[#bfb749] font-semibold'>CloudFusion.</h1>
                 <div onClick={returnHome} className='w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold'>
                     <button className="flex rounded-md"><HiArrowSmallLeft className="w-[1.75vw] h-[100%]"/><span className="ml-[5%]">Back</span></button>
                 </div>
@@ -26,8 +30,8 @@ const SignIn = ({returnHome}) =>{
                         <p className='text-base mb-2'>Welcome Back! Please enter your details.</p>
                     </div>
                     <div className='w-full flex flex-col'>
-                        <input type='email' placeholder='Email' className='w-full text-black py-4 my-2 bg-transparent border-b border-black outline-none focus:outline-none'/>
-                        <input type='password' placeholder='Password' className='w-full text-black py-4 my-2 bg-transparent border-b border-black outline-none focus:outline-none'/>
+                        <input required type='email' placeholder='Email' className='w-full text-black py-4 my-2 bg-transparent border-b border-black outline-none focus:outline-none'/>
+                        <input required type='password' placeholder='Password' className='w-full text-black py-4 my-2 bg-transparent border-b border-black outline-none focus:outline-none'/>
                     </div>
                     <div className='w-full flex items-center justify-between'>
                         <div className='w-full flex items-center'>
@@ -38,7 +42,7 @@ const SignIn = ({returnHome}) =>{
                     </div>
                     <div className='w-full flex flex-col my-4'>
                         <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>Log In</button>
-                        <button className='w-full text-[#060606] my-2 font-semibold bg-white border border-black rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>Register</button>
+                        <button onClick={() => setPage("Register")} className='w-full text-[#060606] my-2 font-semibold bg-white border border-black rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>Register</button>
                     </div>
                     <div className='w-full flex items-center justify-center relative py-2'>
                         <div className='w-full h-[1px] bg-black/40'></div>
@@ -52,10 +56,14 @@ const SignIn = ({returnHome}) =>{
                     </div>
                 </div>
                 <div className='w-full flex items-center justify-center'>
-                    <p className='text-sm font-normal text-[#060606]'>Don't have an account? <span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free</span></p>
+                    <p className='text-sm font-normal text-[#060606]'>Don't have an account? <span onClick={() => setPage("Register")} className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free!</span></p>
                 </div>
             </div>
         </div>
+        : 
+        <Register goBack = {setPage}/>
+        }
+        </>
     );
 }
 export default SignIn;

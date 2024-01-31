@@ -1,4 +1,4 @@
-import Navbar from "../NewNavbar";
+
 import { HiArrowSmallLeft } from "react-icons/hi2";
 
 //Importing neccesary libraries
@@ -56,8 +56,8 @@ const TeamsPage = ({returnHome}) => {
                             <div className="w-1/4 bg-[#F2F2F2]">
                                 <button className="flex text-center  mt-[20%] mx-auto" onClick={() => setChosen("N/A")}><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Return</span></button>
                             </div>
-                            <div className="w-[75%] text-center">
-                                <div className=" h-[60%] w-[80%] mx-auto">
+                            <div className="w-[75%] text-center flex-col">
+                                <div className=" h-[50%] w-[80%] mx-auto">
                                       {/* Defining the image on the card */}
                 {/* <img className="h-full w-[60%]" src={person.Poster !== "N/A" ? person.Poster: 'https://via.placeholder.com/400'} alt={person.Title}/>
              */}
