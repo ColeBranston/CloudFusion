@@ -9,17 +9,17 @@ import Card from './card'
 const TeamsPage = ({returnHome}) => {
     //Defining the api key 
     const API_URL = ""
-
+    const [chosen, setChosen] = useState("N/A");
     //Assigning the changing variables with their corresponding functions
     const [people, setPeople] = useState([
-        {Poster: "N/A", Name: "Jack Branston", id:1}, 
-        {Poster: "N/A", Name: "Cole Branston", id:1}, 
-        {Poster: "N/A", Name: "Obaid", id:2}, 
-        {Poster: "N/A", Name: "Ganesh", id:2},
-        {Poster: "N/A", Name: "Rad", id:3},
-        {Poster: "N/A", Name: "Shivam", id:3}, 
-        {Poster: "N/A", Name: "Ade", id:4}, 
-        {Poster: "N/A", Name: "Joann", id:4}
+        {Poster: "N/A", Name: "Jack Branston", id:1, Description: "Hi my name is Jack Branston. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']}, 
+        {Poster: "N/A", Name: "Cole Branston", id:1, Description: "Hi my name is Cole Branston. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']}, 
+        {Poster: "N/A", Name: "Obaid", id:2, Description: "Hi my name is Obaid. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']}, 
+        {Poster: "N/A", Name: "Ganesh", id:2, Description: "Hi my name is Ganesh. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']},
+        {Poster: "N/A", Name: "Rad", id:3, Description: "Hi my name is Rad. I never show up", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']},
+        {Poster: "N/A", Name: "Shivam", id:3, Description: "Hi my name is Shivam. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']}, 
+        {Poster: "N/A", Name: "Ade", id:4, Description: "Hi my name is Ade. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']}, 
+        {Poster: "N/A", Name: "Joann", id:4, Description: "Hi my name is Joann. I'm a hard working student from Western", Skills:['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader']}
 
     ]);
 
@@ -42,10 +42,51 @@ const TeamsPage = ({returnHome}) => {
 
     //     setPeople(data.Search) //For the API
     // }, [])
+
+    const reveal = (person) => {
+        setChosen(person)
+    }
+
     return(
-        
+            
                 <div className="flex bg-white overflow-auto">
-                    <div className="fixed h-screen w-[25%] bg-gray-100 animate-[flyFromLeft_1s_ease-out]">
+
+                    {chosen != "N/A"? (
+                        <div className="flex h-screen w-full overflow-hidden">
+                            <div className="w-1/4 animate-[flyFromLeft1_1s_ease-out] bg-[#F2F2F2]">
+                                <button className="flex text-center  mt-[20%] mx-auto" onClick={() => setChosen("N/A")}><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Return</span></button>
+                            </div>
+                            <div className="w-[75%] text-center">
+                                <div className=" h-[60%] w-[80%] mx-auto">
+                                      {/* Defining the image on the card */}
+                {/* <img className="h-full w-[60%]" src={person.Poster !== "N/A" ? person.Poster: 'https://via.placeholder.com/400'} alt={person.Title}/>
+             */}
+                                </div>
+                                <div className="bg-gray-300 text-left rounded-xl mx-auto w-[80%] h-[40%]">
+                                    <div className="ml-[10%] mr-[10%] mb-[10%]">
+                                        <h2 className="mt-[2%] text-[35px] text-center pt-2">{chosen.Name}</h2>
+                                        <h3 className="ml-[10%] text-[20px] ">Description</h3>
+                                        <p className="ml-[10%]">{chosen.Description}</p>
+                                        <h3 className="ml-[10%] text-[20px] mt-[5%]">Skills</h3>
+
+                                        <ul className="ml-[11.5%] list-disc">
+                                            <li>{chosen.Skills[0]}</li>
+                                            <li>{chosen.Skills[1]}</li>
+                                            <li>{chosen.Skills[2]}</li>
+                                            <li>{chosen.Skills[3]}</li>
+                                            <li>{chosen.Skills[4]}</li>
+                                        </ul>
+
+                                        <button className="mt-[5%] mx-auto w-full hover:animate-pulse text-[20px] pb-5">Purchase Services</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+    
+                    ):(
+                        <div>
+                        <div className="fixed h-screen w-[25%] bg-gray-100 animate-[flyFromLeft_1s_ease-out]">
                         <div onClick={returnHome} className="hover:cursor-pointer flex mx-auto items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
                                 <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Back</span></button>
                         </div>
@@ -82,11 +123,11 @@ const TeamsPage = ({returnHome}) => {
                             </div>
                         </div>
                     </div>
-            
+                    
                     {people?.length > 0 ? (
                         <div className='ml-[25%] h-screen w-[75%] justify-center items-center lg:flex-wrap lg:flex md:flex md:flex-wrap bg-white'>
                             {people.map((person) => (
-                            <Card person={person} />
+                            <Card person={person} reveal={reveal}/>
                         ))}
                         </div>
                         ):(
@@ -96,6 +137,9 @@ const TeamsPage = ({returnHome}) => {
                             </div>
 
                     )}
+                    </div>
+                )}
+                         
                 </div>
         
         

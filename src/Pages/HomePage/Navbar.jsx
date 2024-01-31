@@ -10,12 +10,12 @@ const Navbar = ({links1,links2}) => {
     };
     return (
         <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white'>
-            <h1 className = 'w-full text-3xl font-bold text-[#00df9a]'>CloudFusion.</h1>
+            <h1 className = 'w-1/3 text-3xl font-bold text-[#00df9a]'>CloudFusion.</h1>
 
-            <div className = 'flex h-full'>
+            <div className = 'flex h-full text-right justify-center'>
                 <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-pulse' onClick={links1}> Team </button>
                 <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-pulse' onClick={links2}> Signup/Login </button>
-                <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-pulse'> Settings </button>
+                <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-puls'> Settings </button>
             </div>
 
             <div onClick={handleNav} className='block md:hidden'>
