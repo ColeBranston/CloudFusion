@@ -20,7 +20,7 @@ function App() {
 {/* <HomePage links = {goTeamsPage} */}
   return (
     <div className="App">
-      {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage}/>: page==="Teams"? <TeamsPage returnHome = {returnHome}/>: <SignInPage returnHome={returnHome}/>}
+      {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage}/>: page==="Teams"? <TeamsPage returnHome = {returnHome}/>: page=="SignIn"? <SignInPage returnHome={returnHome}/>: ''}
 
     </div>
   );

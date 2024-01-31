@@ -49,11 +49,11 @@ const TeamsPage = ({returnHome}) => {
 
     return(
             
-                <div className="flex bg-white overflow-auto">
+                <div className="flex bg-white overflow-auto ">
 
                     {chosen != "N/A"? (
                         <div className="flex h-screen w-full overflow-hidden">
-                            <div className="w-1/4 animate-[flyFromLeft1_1s_ease-out] bg-[#F2F2F2]">
+                            <div className="w-1/4 bg-[#F2F2F2]">
                                 <button className="flex text-center  mt-[20%] mx-auto" onClick={() => setChosen("N/A")}><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Return</span></button>
                             </div>
                             <div className="w-[75%] text-center">
@@ -62,7 +62,7 @@ const TeamsPage = ({returnHome}) => {
                 {/* <img className="h-full w-[60%]" src={person.Poster !== "N/A" ? person.Poster: 'https://via.placeholder.com/400'} alt={person.Title}/>
              */}
                                 </div>
-                                <div className="bg-gray-300 text-left rounded-xl mx-auto w-[80%] h-[40%]">
+                                <div className="bg-gray-300 text-left rounded-xl mx-auto w-[80%] h-[40%] animate-[flyFromBottom_1s]">
                                     <div className="ml-[10%] mr-[10%] mb-[10%]">
                                         <h2 className="mt-[2%] text-[35px] text-center pt-2">{chosen.Name}</h2>
                                         <h3 className="ml-[10%] text-[20px] ">Description</h3>
@@ -76,8 +76,9 @@ const TeamsPage = ({returnHome}) => {
                                             <li>{chosen.Skills[3]}</li>
                                             <li>{chosen.Skills[4]}</li>
                                         </ul>
-
-                                        <button className="mt-[5%] mx-auto w-full hover:animate-pulse text-[20px] pb-5">Purchase Services</button>
+                                    <div className="w-full flex"> 
+                                        <button className="p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
+                                    </div>
                                 </div>
                                 </div>
                             </div>
@@ -86,7 +87,7 @@ const TeamsPage = ({returnHome}) => {
     
                     ):(
                         <div>
-                        <div className="fixed h-screen w-[25%] bg-gray-100 animate-[flyFromLeft_1s_ease-out]">
+                        <div className="fixed h-screen w-[25%] bg-gray-100 animate-[flyFromLeft_1s]">
                         <div onClick={returnHome} className="hover:cursor-pointer flex mx-auto items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
                                 <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Back</span></button>
                         </div>
@@ -125,7 +126,8 @@ const TeamsPage = ({returnHome}) => {
                     </div>
                     
                     {people?.length > 0 ? (
-                        <div className='ml-[25%] h-screen w-[75%] justify-center items-center lg:flex-wrap lg:flex md:flex md:flex-wrap bg-white'>
+                        <div className='ml-[25vw] h-screen w-3/4 justify-center flex flex-wrap bg-white'>
+                            
                             {people.map((person) => (
                             <Card person={person} reveal={reveal}/>
                         ))}

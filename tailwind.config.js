@@ -8,8 +8,8 @@ module.exports = {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0%)' }
         },
-        flyFromLeft1: {
-          '0%': { transform: 'translateX(-100%)' },
+        flyFromBottom: {
+          '0%': { transform: 'translateY(100%)' },
           '100%': { transform: 'translateX(0%)' }
         },
         appear: {
@@ -19,9 +19,9 @@ module.exports = {
       },
       animation: {
         flyFromLeft:'flyFromLeft', // Use "forwards" to retain the final state
-        flyFromLeft1:'flyFromLeft1',
         appear:'appear',
-        slideDown:'slideDown'
+        slideDown:'slideDown',
+        flyFromBottom: 'flyFromBottom'
       }
     },
   },
