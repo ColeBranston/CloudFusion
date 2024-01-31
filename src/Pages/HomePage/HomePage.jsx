@@ -5,11 +5,11 @@ import Newsletter from './Newsletter';
 import Cards from './Cards';
 import Footer from './Footer';
 
-const HomePage = ({links1, links2}) =>{
+const HomePage = ({links1, links2, links3}) =>{
     
     return(
         <div className='overflow-auto h-screen bg-white'>
-            <Navbar links1 = {links1} links2 = {links2} />
+            <Navbar links1 = {links1} links2 = {links2} links3={links3}/>
             <Hero />
             <Analytics />
             <Newsletter />

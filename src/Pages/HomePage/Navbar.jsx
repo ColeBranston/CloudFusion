@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai';
 
-const Navbar = ({links1,links2}) => {
+const Navbar = ({links1,links2, links3}) => {
 
     const [nav,setNav] = useState(true);
 
@@ -16,7 +16,7 @@ const Navbar = ({links1,links2}) => {
                 <div className = 'flex h-full text-right justify-center'>
                     <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-pulse' onClick={links1}> Team </button>
                     <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-pulse' onClick={links2}> Signup/Login </button>
-                    <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-puls'> Settings </button>
+                    <button className = 'hidden md:block lg:block mr-5 ml-5 hover:animate-pulse' onClick={links3} > Settings </button>
                 </div>
         </div>
 
