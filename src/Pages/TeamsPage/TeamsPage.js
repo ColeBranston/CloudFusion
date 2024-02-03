@@ -7,8 +7,19 @@ import {useEffect, useState} from 'react';
 import Card from './card'
 
 const TeamsPage = ({returnHome}) => {
-    //Defining the api key 
+
+
+
+    
+    //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const API_URL = ""
+
+
+
+
+
+
+    
     const [chosen, setChosen] = useState("N/A");
     //Assigning the changing variables with their corresponding functions
     const [people, setPeople] = useState([
@@ -35,7 +46,7 @@ const TeamsPage = ({returnHome}) => {
         setPeople(data.Search);
     }
 
-    // // For API Call
+    // // For API Call //Uncomment this when you connect the API
     // useEffect ( async() =>{
     //     const response = await fetch(`${API_URL}`)
     //     const data = await response.json();
