@@ -26,10 +26,10 @@ const Navbar = ({links1,links2,links3}) => {
         </div>
             <div className={!nav ? 'fixed left-0 top-0 w-[50%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : ' top-0 w-[50%] h-full ease-in-out duration-500 fixed left-[-100%]'}>
                 <ul className='pt-24 uppercase p-4 border-b border-gray-600'>
-                <h1 className = 'w-full text-3xl font-bold text-[#bfb749] m-4'>CloudFusion.</h1>
+                <h1 className = 'w-full sm:text-xl md:text-3xl font-bold text-[#bfb749] m-4'>CloudFusion.</h1>
                     <li className ='p-4 border-b border-gray-600 text-white cursor-pointer' onClick={links1}> Team </li>
                     <li  className ='p-4 border-b border-gray-600 text-white cursor-pointer' onClick={links2}> Signup/Login </li>
-                    <li className ='p-4 text-white cursor-pointer'> Settings </li>
+                    <li className ='p-4 text-white cursor-pointer' onClick={links3}> Settings </li>
                 </ul>
             </div>
         </div>
