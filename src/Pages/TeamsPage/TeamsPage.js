@@ -5,17 +5,44 @@ import { HiArrowSmallLeft } from "react-icons/hi2";
 import './card.css';
 import {useEffect, useState} from 'react';
 import Card from './card'
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
+
 
 const TeamsPage = ({returnHome}) => {
 
+    const handlePurchaseClick = async () => {
 
 
+
+        try {
+            // Call your server to create a PaymentIntent
+            const response = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ items: [{ id: "prod_XXXX" }] }) // I think this is where i would specify which consultant the user is purchasing
+            });
     
-    //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const API_URL = ""
-
-
-
+            const { clientSecret } = await response.json();
+    
+            // Assuming stripePromise is defined and contains your loaded Stripe object
+            const stripe = await stripePromise;
+    
+            // Use the clientSecret to redirect to Stripe's checkout page
+            stripe.redirectToCheckout({
+                clientSecret,
+            }).then((result) => {
+                if (result.error) {
+                    console.error('Error in redirectToCheckout:', result.error);
+                }
+            });
+        } catch (error) {
+            console.error('Error during purchase click:', error);
+        }
+    };
 
 
 
@@ -38,13 +65,13 @@ const TeamsPage = ({returnHome}) => {
 
 
     //For the filter option
-    const filterPeople = async (person) => {
-        const response = await fetch(`${API_URL}&s=${person}`)
-        const data = await response.json();
+    // const filterPeople = async (person) => {
+    //     const response = await fetch(`${API_URL}&s=${person}`)
+    //     const data = await response.json();
 
-        //Sending the data to the application
-        setPeople(data.Search);
-    }
+    //     //Sending the data to the application
+    //     setPeople(data.Search);
+    // }
 
     // // For API Call //Uncomment this when you connect the API
     // useEffect ( async() =>{
@@ -88,7 +115,7 @@ const TeamsPage = ({returnHome}) => {
                                             <li>{chosen.Skills[4]}</li>
                                         </ul>
                                     <div className="w-full flex"> 
-                                        <button className="p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
+                                        <button onClick={handlePurchaseClick} className="p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
                                     </div>
                                 </div>
                                 </div>

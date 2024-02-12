@@ -3,7 +3,7 @@ import HomePage from './Pages/HomePage/HomePage';
 import TeamsPage from "./Pages/TeamsPage/TeamsPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import Settings from "./Pages/SettingsPage/Settings"
-import PaymentPage from "./Pages/StripePage/Payment";
+import Payment from "./Pages/StripePage/Payment";
 import CheckoutForm from "./Pages/StripePage/CheckoutForm"; 
 import CompletionPage from "./Pages/StripePage/Completion"; 
 
@@ -42,7 +42,7 @@ function App() {
     {page === "Teams" && <TeamsPage returnHome={returnHome} />}
     {page === "SignIn" && <SignInPage returnHome={returnHome} />}
     {page === "Settings" && <Settings returnHome={returnHome} />}
-    {page === "Payment" && <PaymentPage />} // Add a conditional render for Payment
+    {page === "Payment" && <Payment />} // Add a conditional render for Payment
     {page === "Checkout" && <CheckoutForm />} // Add a conditional render for CheckoutForm
     {page === "Completion" && <CompletionPage />} // Add a conditional render for CompletionPage
     {/* Continue with conditional rendering for other pages */}
