@@ -7,19 +7,10 @@ import {useEffect, useState} from 'react';
 import Card from './card'
 
 const TeamsPage = ({returnHome}) => {
-
-
-
     
     //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const API_URL = ""
 
-
-
-
-
-
-    
     const [chosen, setChosen] = useState("N/A");
     //Assigning the changing variables with their corresponding functions
     const [people, setPeople] = useState([
@@ -58,9 +49,10 @@ const TeamsPage = ({returnHome}) => {
         setChosen(person)
     }
 
+    var [page, setPage] = useState('Account');
+
     return(
-            
-                <div className="flex bg-white overflow-auto ">
+            <div className="flex bg-white overflow-auto ">
 
                     {chosen != "N/A"? (
                         <div className="flex h-screen w-full overflow-hidden">
@@ -94,7 +86,6 @@ const TeamsPage = ({returnHome}) => {
                                 </div>
                             </div>
                         </div>
-                        
     
                     ):(
                         <div>
@@ -106,27 +97,27 @@ const TeamsPage = ({returnHome}) => {
                             <h2 className="text-[1.75vw]">Filters</h2>
                             <div>
                                 <div className="">
-                                    <div className="flex justify-left pt-4"> 
+                                    <div className="flex justify-left pt-4 mb-[5%]"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 justify-left text-[1.3vw]">Jack Branston</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left mt-3 mb-[5%]"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Cole Branston</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left mt-3 mb-[5%]"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Obaid</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left mt-3 mb-[5%]"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Ganesh</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left mt-3 mb-[5%]"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Rad</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left mt-3 mb-[5%]"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Shivam</p>
                                     </div>
@@ -152,8 +143,10 @@ const TeamsPage = ({returnHome}) => {
                     )}
                     </div>
                 )}
-                         
+                        
                 </div>
+
+            
         
         
 

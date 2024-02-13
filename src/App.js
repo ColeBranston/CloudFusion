@@ -3,6 +3,7 @@ import HomePage from './Pages/HomePage/HomePage';
 import TeamsPage from "./Pages/TeamsPage/TeamsPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import Settings from "./Pages/SettingsPage/Settings"
+
 function App() {
   const [page, setPage] = useState("Homepage")
   const returnHome = () => {
@@ -23,6 +24,7 @@ function App() {
   var settings = () => {
     setPage("Settings")
   }
+
 {/* <HomePage links = {goTeamsPage} */}
   return (
     <div className="App">
