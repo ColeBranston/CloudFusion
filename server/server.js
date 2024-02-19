@@ -42,6 +42,29 @@ app.post("/create-payment-intent", async (req, res) => {
   }
 });
 
+// app.post('/create-checkout-session', async (req, res) => {
+//     const session = await stripe.checkout.sessions.create({
+//         payment_method_types: ['card'],
+//         line_items: [
+//             {
+//                 price_data: {
+//                     currency: 'usd',
+//                     product_data: {
+//                         name: 'Your Product Name',
+//                     },
+//                     unit_amount: 2000, // The price in cents
+//                 },
+//                 quantity: 1,
+//             },
+//         ],
+//         mode: 'payment',
+//         success_url: 'https://yourdomain.com/success', // URL to redirect to upon successful payment
+//         cancel_url: 'https://yourdomain.com/cancel', // URL to redirect to if the customer cancels
+//     });
+
+//     res.json({ id: session.id });
+// });
+
 app.listen(3005, () =>
   console.log(`Node server listening at http://localhost:3005`)
 );
