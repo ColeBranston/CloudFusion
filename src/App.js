@@ -17,37 +17,21 @@ function App() {
   const goTeamsPage = () => {
     setPage("Teams")
     
-//   };
-//   const goSignInPage = () => {
-//     setPage("SignIn")
+  };
+  const goSignInPage = () => {
+    setPage("SignIn")
     
-//   };
-//   var register = () =>{
-//     setPage('Register')
-//   }
-//   var settings = () => {
-//     setPage("Settings")
-//   }
-// {/* <HomePage links = {goTeamsPage} */}
-//   return (
+  };
+  
+  const goPayment = () => setPage("Payment"); // Add a function to go to the payment page
 
-//     <div className="App">
-//       {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage} links3={settings}/>:
-//        page==="Teams"? <TeamsPage returnHome = {returnHome}/>: 
-//        page=="SignIn"? <SignInPage returnHome={returnHome}/>: <Settings returnHome={returnHome}/>}
-
-//         {/* {page === "Homepage" && <HomePage links1={goTeamsPage} links2={goSignInPage} links3={settings} />}
-//         {page === "Teams" && <TeamsPage returnHome={returnHome} />}
-//         {page === "SignIn" && <SignInPage returnHome={returnHome} />}
-//         {page === "Settings" && <Settings returnHome={returnHome} />} */}
-//     </div>
-    
-    
-//   );
-// }
-
-
-function App() {
+  var register = () =>{
+    setPage('Register')
+  }
+  var settings = () => {
+    setPage("Settings")
+  }
+{/* <HomePage links = {goTeamsPage} */}
   return (
     // <div className="App">
     //   {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage} links3={settings}/>: page==="Teams"? <TeamsPage returnHome = {returnHome}/>: page=="SignIn"? <SignInPage returnHome={returnHome}/>: <Settings returnHome={returnHome}/>}
