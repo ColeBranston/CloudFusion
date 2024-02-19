@@ -5,6 +5,7 @@ import Newsletter from './Newsletter';
 import Cards from './Cards';
 import Footer from './Footer';
 import Box from "./standalone-frontend/support"
+import Box from "./standalone-frontend/support"
 
 const HomePage = ({links1, links2, links3}) =>{
     
@@ -13,7 +14,7 @@ const HomePage = ({links1, links2, links3}) =>{
             <Navbar links1 = {links1} links2 = {links2} links3={links3}/>
             <Hero links2 = {links2}/>
             <Analytics links1 = {links1}/>
-            <div className='fixed top-[30%] right-5'>
+            <div className='fixed top-[30%] right-0 z-5'>
             <Box/>
             </div>
             <Newsletter />
