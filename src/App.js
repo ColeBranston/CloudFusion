@@ -3,6 +3,7 @@ import HomePage from './Pages/HomePage/HomePage';
 import TeamsPage from "./Pages/TeamsPage/TeamsPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import Settings from "./Pages/SettingsPage/Settings"
+
 import Payment from "./Pages/StripePage/Payment";
 import CheckoutForm from "./Pages/StripePage/CheckoutForm"; 
 import CompletionPage from "./Pages/StripePage/Completion"; 
@@ -16,21 +17,37 @@ function App() {
   const goTeamsPage = () => {
     setPage("Teams")
     
-  };
-  const goSignInPage = () => {
-    setPage("SignIn")
+//   };
+//   const goSignInPage = () => {
+//     setPage("SignIn")
     
-  };
-  
-  const goPayment = () => setPage("Payment"); // Add a function to go to the payment page
+//   };
+//   var register = () =>{
+//     setPage('Register')
+//   }
+//   var settings = () => {
+//     setPage("Settings")
+//   }
+// {/* <HomePage links = {goTeamsPage} */}
+//   return (
 
-  var register = () =>{
-    setPage('Register')
-  }
-  var settings = () => {
-    setPage("Settings")
-  }
-{/* <HomePage links = {goTeamsPage} */}
+//     <div className="App">
+//       {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage} links3={settings}/>:
+//        page==="Teams"? <TeamsPage returnHome = {returnHome}/>: 
+//        page=="SignIn"? <SignInPage returnHome={returnHome}/>: <Settings returnHome={returnHome}/>}
+
+//         {/* {page === "Homepage" && <HomePage links1={goTeamsPage} links2={goSignInPage} links3={settings} />}
+//         {page === "Teams" && <TeamsPage returnHome={returnHome} />}
+//         {page === "SignIn" && <SignInPage returnHome={returnHome} />}
+//         {page === "Settings" && <Settings returnHome={returnHome} />} */}
+//     </div>
+    
+    
+//   );
+// }
+
+
+function App() {
   return (
     // <div className="App">
     //   {page === "Homepage"? <HomePage links1 = {goTeamsPage} links2 = {goSignInPage} links3={settings}/>: page==="Teams"? <TeamsPage returnHome = {returnHome}/>: page=="SignIn"? <SignInPage returnHome={returnHome}/>: <Settings returnHome={returnHome}/>}
