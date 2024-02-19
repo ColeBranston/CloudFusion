@@ -7,19 +7,10 @@ import {useEffect, useState} from 'react';
 import Card from './card'
 
 const TeamsPage = ({returnHome}) => {
-
-
-
     
     //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const API_URL = ""
 
-
-
-
-
-
-    
     const [chosen, setChosen] = useState("N/A");
     //Assigning the changing variables with their corresponding functions
     const [people, setPeople] = useState([
@@ -58,9 +49,10 @@ const TeamsPage = ({returnHome}) => {
         setChosen(person)
     }
 
+    var [page, setPage] = useState('Account');
+
     return(
-            
-                <div className="flex bg-white overflow-auto ">
+            <div className="flex bg-white overflow-auto ">
 
                     {chosen != "N/A"? (
                         <div className="flex h-screen w-full overflow-hidden">
@@ -94,15 +86,14 @@ const TeamsPage = ({returnHome}) => {
                                 </div>
                             </div>
                         </div>
-                        
     
                     ):(
-                        <div>
+                        <div className="">
                         <div className="fixed h-screen w-[25%] bg-gray-100 animate-[flyFromLeft_1s]">
                         <div onClick={returnHome} className="hover:cursor-pointer flex mx-auto items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
                                 <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto"/><span className="ml-[5%] text-[1.5vw]">Back</span></button>
                         </div>
-                        <div className=" mx-auto mt-[30%] rounded-xl justify-center w-3/4 bg-[#F2F2F2] opacity-[0.7]">
+                        <div className=" mx-auto mt-[20%] rounded-xl justify-center w-3/4 bg-[#F2F2F2] opacity-[0.7]">
                             <h2 className="text-[1.75vw]">Filters</h2>
                             <div>
                                 <div className="">
@@ -110,23 +101,23 @@ const TeamsPage = ({returnHome}) => {
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 justify-left text-[1.3vw]">Jack Branston</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Cole Branston</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Obaid</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Ganesh</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Rad</p>
                                     </div>
-                                    <div className="flex justify-left mt-3"> 
+                                    <div className="flex justify-left"> 
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Shivam</p>
                                     </div>
@@ -149,13 +140,15 @@ const TeamsPage = ({returnHome}) => {
                                 <h2>No People found</h2>
                             </div>
 
+                        
+
                     )}
                     </div>
+                    
                 )}
-                         
+
                 </div>
-        
-        
+
 
     );
 }
