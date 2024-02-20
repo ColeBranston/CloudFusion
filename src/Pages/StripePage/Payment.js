@@ -4,12 +4,12 @@ import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 
 function Payment(props) {
-  const [stripePromise, setStripePromise] = useState(null); 
+  const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
     fetch("/config").then(async (r) => {
-      const {publishableKey} = await r.json();
+      const { publishableKey } = await r.json();
 
       setStripePromise(loadStripe(publishableKey));
     })
@@ -21,7 +21,7 @@ function Payment(props) {
       body: JSON.stringify({}),
     }).then(async (result) => {
       var { clientSecret } = await result.json();
-    
+
       setClientSecret(clientSecret);
     });
   }, []);
@@ -30,9 +30,9 @@ function Payment(props) {
     <>
       <h1>CloudFusion Consultants</h1>
       {stripePromise && clientSecret && (
-      <Elements stripe={stripePromise} options={{ clientSecret }}>
-        <CheckoutForm/>
-      </Elements>
+        <Elements stripe={stripePromise} options={{ clientSecret }}>
+          <CheckoutForm />
+        </Elements>
       )}
     </>
   );

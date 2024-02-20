@@ -25,23 +25,38 @@ app.get("/config", (req, res) => {
 
 app.post('/create-checkout-session', async (req, res) => {
   try {
-      const paymentIntent = await stripe.checkout.sessions.create({
-          amount: 2000,
+    // Correct the creation of a checkout session
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
           currency: 'usd',
-          automatic_payment_methods: { enabled: true },
-      });
-
-      res.send({
-          clientSecret: paymentIntent.client_secret,
-      });
-  } catch (error) {
-      return res.status(400).send({
-          error: {
-              message: error.message,
+          product_data: {
+            name: 'T-shirt',
           },
-      });
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin}/cancel.html`,
+    });
+
+    // Respond with the ID of the Stripe checkout session
+    res.send({
+      sessionId: session.id, // Send the session ID to the client
+    });
+  } catch (error) {
+    console.error('Error creating checkout session:', error);
+    res.status(500).send({
+      error: {
+        message: error.message,
+      },
+    });
   }
 });
+
 
 
 app.listen(3000, () =>
