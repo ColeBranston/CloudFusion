@@ -1,42 +1,38 @@
-import { useEffect, useState } from "react";
-import { useStripe, useElements } from '@stripe/react-stripe-js';
-import { PaymentElement } from "@stripe/react-stripe-js";
+import { useStripe, useState, useElements, PaymentElement } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm() {
+function CheckoutForm({ clientSecret }) {
   const stripe = useStripe();
   const elements = useElements();
 
   const [message, setMessage] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
+      // Stripe.js has not loaded yet. Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
-    setIsProcessing(true); 
+    setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: `${window.location.origin}/completion`,
-      },
+    const result = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(PaymentElement),
+        // Add other payment method details if necessary
+      }
     });
 
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
+    if (result.error) {
+      console.log(result.error.message);
+      // Show error to your customer (e.g., payment details incomplete)
     } else {
-      setMessage("An unexpected error occured.");
+      if (result.paymentIntent.status === 'succeeded') {
+        console.log("Payment succeeded!");
+        // Show a success message to your customer
+      }
     }
-
-    setIsProcessing(false);
-    
   };
 
   return (
@@ -47,8 +43,9 @@ export default function CheckoutForm() {
           {isProcessing ? "Processing ... " : "Pay now"}
         </span>
       </button>
-      {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
   );
 }
+
+export default CheckoutForm;

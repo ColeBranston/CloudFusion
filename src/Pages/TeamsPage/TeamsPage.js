@@ -2,50 +2,57 @@
 import { HiArrowSmallLeft } from "react-icons/hi2";
 
 //Importing neccesary libraries
-import './card.css';
-import {useEffect, useState} from 'react';
-import Card from './card'
+import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 
-// Stripe should be initialized outside of the component to avoid re-creating the Stripe object on every render.
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+import './card.css';
+import Card from './card';
 
 
 const TeamsPage = ({returnHome}) => {
     
-    //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    const API_URL = ""
+    // //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // const API_URL = ""
 
+    const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+    const stripePromise = loadStripe(publishableKey);
 
-    const handlePurchaseClick = async () => {
+   const handlePurchaseClick = async (e) => {
+  // Prevent the default form submission
+  e.preventDefault();
 
-        console.log(stripePromise);
-        try {
-          console.log("Attempting to create a checkout session...");
-          const stripe = await stripePromise;
-          const response = await fetch('/create-checkout-session', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ items: [{ id: "prod_XXXX" }] }),
-          });
-    
-          const { session_id } = await response.json(); // Make sure to use the correct key from the response
-    
-          if (session_id) {
-            // Call Stripe to redirect to the checkout page
-            const result = await stripe.redirectToCheckout({ sessionId: session_id });
-            if (result.error) {
-              console.error('Error in redirectToCheckout:', result.error.message);
-            }
-          } else {
-            console.error('Session ID not received.');
-          }
-        } catch (error) {
-          console.error('Error during purchase click:', error);
-        }
-      };
+  try {
+    // Fetch the checkout session from your server
+    const response = await fetch('http://localhost:3000/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      // Pass any necessary data to your server
+      body: JSON.stringify({ /* your data here */ })
+      
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }  
+
+    const session = await response.json();
+
+    // Use Stripe.js to redirect to the Checkout page
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+
+    if (error) {
+      console.error('Error redirecting to Stripe checkout:', error);
+    }
+  } catch (error) {
+    console.error('Error creating checkout session:', error);
+  }
+};
+      
 
     
     const [chosen, setChosen] = useState("N/A");
@@ -185,8 +192,8 @@ const TeamsPage = ({returnHome}) => {
                 )}
 
                 </div>
-
-
+                        
+       
     );
 }
 export default TeamsPage;
