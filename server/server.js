@@ -1,14 +1,16 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const { resolve } = require("path");
 // Replace if using a different env file or config
 const env = require("dotenv").config({ path: "./.env" });
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
+const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY, {
   apiVersion: "2022-08-01",
 });
 
-app.use(express.static(process.env.STATIC_DIR));
+app.use(cors());
+app.use(express.static(resolve(__dirname, '../public')));
 
 app.get("/", (req, res) => {
   const path = resolve(process.env.STATIC_DIR + "/index.html");
@@ -17,54 +19,31 @@ app.get("/", (req, res) => {
 
 app.get("/config", (req, res) => {
   res.send({
-    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY,
   });
 });
 
-app.post("/create-payment-intent", async (req, res) => {
+app.post('/create-checkout-session', async (req, res) => {
   try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      currency: "USD",
-      amount: 2000,
-      automatic_payment_methods: { enabled: true },
-    });
+      const paymentIntent = await stripe.checkout.sessions.create({
+          amount: 2000,
+          currency: 'usd',
+          automatic_payment_methods: { enabled: true },
+      });
 
-    // Send publishable key and PaymentIntent details to client
-    res.send({
-      clientSecret: paymentIntent.client_secret,
-    });
-  } catch (e) {
-    return res.status(400).send({
-      error: {
-        message: e.message,
-      },
-    });
+      res.send({
+          clientSecret: paymentIntent.client_secret,
+      });
+  } catch (error) {
+      return res.status(400).send({
+          error: {
+              message: error.message,
+          },
+      });
   }
 });
 
-// app.post('/create-checkout-session', async (req, res) => {
-//     const session = await stripe.checkout.sessions.create({
-//         payment_method_types: ['card'],
-//         line_items: [
-//             {
-//                 price_data: {
-//                     currency: 'usd',
-//                     product_data: {
-//                         name: 'Your Product Name',
-//                     },
-//                     unit_amount: 2000, // The price in cents
-//                 },
-//                 quantity: 1,
-//             },
-//         ],
-//         mode: 'payment',
-//         success_url: 'https://yourdomain.com/success', // URL to redirect to upon successful payment
-//         cancel_url: 'https://yourdomain.com/cancel', // URL to redirect to if the customer cancels
-//     });
 
-//     res.json({ id: session.id });
-// });
-
-app.listen(3005, () =>
-  console.log(`Node server listening at http://localhost:3005`)
+app.listen(3000, () =>
+  console.log(`Node server listening at http://localhost:3000`)
 );
