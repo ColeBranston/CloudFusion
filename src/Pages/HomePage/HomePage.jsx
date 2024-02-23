@@ -5,8 +5,6 @@ import Newsletter from './Newsletter';
 import Cards from './Cards';
 import Footer from './Footer';
 import Box from "./standalone-frontend/support"
-import Box from "./standalone-frontend/support"
-import Box from "./standalone-frontend/support"
 
 const HomePage = ({links1, links2, links3}) =>{
     

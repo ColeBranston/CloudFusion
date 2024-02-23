@@ -5,53 +5,104 @@ import { HiArrowSmallLeft } from "react-icons/hi2";
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 
+
 import './card.css';
 import Card from './card';
 
+
+let stripePromise;
+const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+
+
+const getStripe = () => {
+    if (!stripePromise) {
+        stripePromise = loadStripe(publishableKey);
+    }
+
+    return stripePromise;
+}
 
 const TeamsPage = ({ returnHome }) => {
 
     // //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // const API_URL = ""
 
-    const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
-    const stripePromise = loadStripe(publishableKey);
 
-    // This function should be called when the user clicks a "Checkout" button
-    const handlePurchaseClick = async () => {
-        try {
-          const response = await fetch('http://localhost:3000/create-checkout-session', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
+    // const stripePromise = loadStripe(publishableKey);
+
+    // // This function should be called when the user clicks a "Checkout" button
+    // const handlePurchaseClick = async () => {
+    //     try {
+    //       const response = await fetch('http://localhost:3000/create-checkout-session', {
+    //         method: 'POST',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({}),
+    //       });
+
+    //       if (!response.ok) {
+    //         throw new Error(`HTTP error! status: ${response.status}`);
+    //       }
+
+    //       const data = await response.json(); // Assuming the server responds with JSON
+    //       const sessionId = data.sessionId; // Make sure this matches what the server sends
+
+    //       if (sessionId) {
+    //         const stripe = await stripePromise;
+    //         const { error } = await stripe.redirectToCheckout({
+    //           sessionId, // Use the session ID from the server response
+    //         });
+
+    //         if (error) {
+    //           console.error('Error redirecting to Stripe checkout:', error);
+    //         }
+    //       } else {
+    //         console.error('Session ID not received from server');
+    //       }
+    //     } catch (error) {
+    //       console.error('Error during fetch to server:', error.message);
+    //     }
+    //   };
+
+    const [stripeError, setStripeError] = useState(null);
+    const [isLoading, setLoading] = useState(false);
+    // const item = {
+    //     price_data: {
+    //         currency: 'usd',
+    //         product_data: {
+    //             name: 'Your Product Name',
+    //         },
+    //         unit_amount: 1000,
+    //     },
+    //     quantity: 1,
+    // };
+
+    const checkoutOptions = {
+        lineItems: [
+            {
+                price: 'price_1OmnZ3IJzkf04pjLb9FMWZrZ', // replace 'price_id' with the actual price ID from your Stripe Dashboard
+                quantity: 1,
             },
-            body: JSON.stringify({}),
-          });
-      
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-      
-          const data = await response.json(); // Assuming the server responds with JSON
-          const sessionId = data.sessionId; // Make sure this matches what the server sends
-      
-          if (sessionId) {
-            const stripe = await stripePromise;
-            const { error } = await stripe.redirectToCheckout({
-              sessionId, // Use the session ID from the server response
-            });
-      
-            if (error) {
-              console.error('Error redirecting to Stripe checkout:', error);
-            }
-          } else {
-            console.error('Session ID not received from server');
-          }
-        } catch (error) {
-          console.error('Error during fetch to server:', error.message);
-        }
-      };
-      
+        ],
+        mode: "payment",
+        successUrl: `${window.location.origin}/completion`,
+        cancelUrl: `${window.location.origin}/cancel` // work on this later after checkout is working
+    };
+
+    const handlePurchaseClick = async () => {
+        setLoading(true);
+        console.log("redirectToCheckout");
+
+        const stripe = await getStripe();
+        const { error } = await stripe.redirectToCheckout(checkoutOptions);
+        console.log("Stripe checkout error", error);
+
+        if (error) setStripeError(error.message);
+        setLoading(false);
+    };
+
+    if (stripeError) alert(stripeError);
 
 
     const [chosen, setChosen] = useState("N/A");
@@ -123,7 +174,7 @@ const TeamsPage = ({ returnHome }) => {
                                     <li>{chosen.Skills[4]}</li>
                                 </ul>
                                 <div className="w-full flex">
-                                    <button onClick={handlePurchaseClick} className="p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
+                                    <button disabled={isLoading} onClick={handlePurchaseClick} className="p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
                                 </div>
                             </div>
                         </div>
