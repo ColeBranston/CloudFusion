@@ -13,7 +13,7 @@ const HomePage = () =>{
             <Navbar/>
             <Hero/>
             <Analytics/>
-                <div className='fixed top-[30%] right-0 z-5'>
+            <div className='fixed top-[30%] right-0 z-5'>
             <Box/>
             </div>
                 <Newsletter />

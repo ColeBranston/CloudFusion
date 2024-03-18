@@ -87,7 +87,7 @@ const TeamsPage = () => {
         ],
         mode: "payment",
         successUrl: `${window.location.origin}/completion`,
-        cancelUrl: `${window.location.origin}/cancel` // work on this later after checkout is working
+        cancelUrl: `${window.location.origin}/` // work on this later after checkout is working
     };
 
     const handlePurchaseClick = async () => {
@@ -146,10 +146,10 @@ const TeamsPage = () => {
     return (
         <>
         <Navbar />
-        <div className="flex bg-white overflow-auto">
+        <div className="flex bg-white overflow-auto z-0">
 
             {chosen != "N/A" ? (
-                <div className="flex h-screen w-full overflow-hidden">
+                <div className="flex h-screen w-full overflow-scroll">
                     <div className="w-1/4 bg-[#F2F2F2]">
                         <button className="flex text-center  mt-[20%] mx-auto" onClick={() => setChosen("N/A")}><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto" /><span className="ml-[5%] text-[1.5vw]">Return</span></button>
                     </div>
@@ -219,12 +219,14 @@ const TeamsPage = () => {
                     </div>
 
                     {people?.length > 0 ? (
-                        <div className="w-full">
-                            <div className='flex h-screen w-full justify-center flex-wrap bg-white'>
+                        <div className="flex mb-[10%]">
+                            <div className="overflow-y-scroll">
+                                <div className='flex h-full w-full justify-center flex-wrap bg-white p-20'>
 
-                                {people.map((person) => (
-                                    <Card person={person} reveal={reveal} />
-                                ))}
+                                    {people.map((person) => (
+                                        <Card person={person} reveal={reveal} />
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ) : (
