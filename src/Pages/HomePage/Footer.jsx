@@ -13,7 +13,7 @@ const Footer = () => {
       <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
         <div>
           <h1 className='w-full text-3xl font-bold text-[#bfb749]'>CloudFusion.</h1>
-          <p className='py-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id odit ullam iste repellat consequatur libero reiciendis, blanditiis accusantium.</p>
+          <p className='py-4'>Reach the unthinkable with us. Find people to solve solutions that matter today, solutions that would change the future.</p>
           <div className='flex justify-between md:w-[75%] my-6'>
               <a href="https://www.facebook.com/WesternUniversity/"><FaFacebookSquare size={30} /></a>
               <a href="https://twitter.com/WesternU"><FaTwitterSquare size={30} /></a>
