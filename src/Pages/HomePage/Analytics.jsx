@@ -1,6 +1,6 @@
 import React from 'react'
 import Laptop from '../../Assets/laptop.png'
-
+import { Link } from 'react-router-dom';
 const Analytics = ({links1}) => {
     return(
         <div className='w-full bg-gray-100 py-16 px-4'>
@@ -16,9 +16,9 @@ const Analytics = ({links1}) => {
                         fuga molestias consequuntur cupiditate maiores magnam assumenda quaerat maxime, 
                         repellendus totam veritatis, culpa modi velit nobis itaque unde possimus.
                     </p>
-                    <button onClick={links1} className='bg-black text-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3'>
-                        <p> Get Started </p>
-                    </button>
+                    <Link to='/teams' className='flex bg-black text-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3 justify-center'>Get Started</Link>
+                        
+                   
                 </div>
 
             </div>

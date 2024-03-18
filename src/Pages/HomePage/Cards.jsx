@@ -2,9 +2,9 @@ import React from 'react'
 import { FaCode } from "react-icons/fa";
 import { FaDatabase } from "react-icons/fa";
 import { HiMiniSquare3Stack3D } from "react-icons/hi2";
+import { Link } from 'react-router-dom';
 
-
-const Cards = ({links1}) => {
+const Cards = () => {
     return(
         <div className='w-full py-[10rem] px-4 bg-white'>
             <div className='max-w-[1240px] mx-auto grid md:grid-cols-3 gap-8'>
@@ -17,7 +17,7 @@ const Cards = ({links1}) => {
                         <p className='py-2 border-b mx-8 mx-8'>Website Development</p>
                         <p className='py-2 border-b mx-8 mx-8'>SEO Consultancy</p>
                     </div>
-                    <button onClick={links1} className='bg-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Hire Now</button>
+                    <Link to='/teams' className='flex justify-center bg-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Hire Now</Link>
                 </div>
 
                 <div className='w-full shadow-xl bg-gray-100 flex flex-col p-4 md:my-0 my-8 rounded-lg hover:scale-105 duration-300'> 
@@ -29,7 +29,7 @@ const Cards = ({links1}) => {
                         <p className='py-2 border-b mx-8 mx-8'>Impactful Architecture</p>
                         <p className='py-2 border-b mx-8 mx-8'>Version Control Experience</p>
                     </div>
-                    <button onClick={links1} className='bg-black text-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Hire Now</button>
+                    <Link to='/teams' className='flex justify-center bg-black text-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Hire Now</Link>
                 </div>
 
                 <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'> 
@@ -41,7 +41,7 @@ const Cards = ({links1}) => {
                         <p className='py-2 border-b mx-8 mx-8'>Agile Developement</p>
                         <p className='py-2 border-b mx-8 mx-8'>Cloud Hosting</p>
                     </div>
-                    <button onClick={links1} className='bg-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Hire Now</button>
+                    <Link to='/teams' className='flex justify-center bg-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Hire Now</Link>
                 </div>
             </div>
         </div>

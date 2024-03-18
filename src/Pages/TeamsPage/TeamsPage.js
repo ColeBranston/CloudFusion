@@ -8,7 +8,7 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import './card.css';
 import Card from './card';
-
+import Navbar from '../HomePage/Navbar.jsx';
 
 let stripePromise;
 const publishableKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
@@ -22,7 +22,7 @@ const getStripe = () => {
     return stripePromise;
 }
 
-const TeamsPage = ({ returnHome }) => {
+const TeamsPage = () => {
 
     // //Defining the api key //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      const API_URL = ""
@@ -143,10 +143,10 @@ const TeamsPage = ({ returnHome }) => {
         setChosen(person)
     }
 
-    var [page, setPage] = useState('Account');
-
     return (
-        <div className="flex bg-white overflow-auto ">
+        <>
+        <Navbar />
+        <div className="flex bg-white overflow-auto">
 
             {chosen != "N/A" ? (
                 <div className="flex h-screen w-full overflow-hidden">
@@ -174,7 +174,7 @@ const TeamsPage = ({ returnHome }) => {
                                     <li>{chosen.Skills[4]}</li>
                                 </ul>
                                 <div className="w-full flex">
-                                    <button disabled={isLoading} onClick={handlePurchaseClick} className="p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
+                                    <button disabled={isLoading} onClick={handlePurchaseClick} className="flex p-4 bg-gray-400 justify-center items-center rounded-md m-10 mx-auto hover:animate-pulse text-[20px]">Purchase Services</button>
                                 </div>
                             </div>
                         </div>
@@ -182,11 +182,8 @@ const TeamsPage = ({ returnHome }) => {
                 </div>
 
             ) : (
-                <div className="">
-                    <div className="fixed h-screen w-[25%] bg-gray-100 animate-[flyFromLeft_1s]">
-                        <div onClick={returnHome} className="hover:cursor-pointer flex mx-auto items-center bg-[#F2F2F2] rounded-md w-1/2 mt-[20%]">
-                            <button className="flex rounded-md mt-[5%] mb-[5%] mx-auto"><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto" /><span className="ml-[5%] text-[1.5vw]">Back</span></button>
-                        </div>
+                <div className="w-screen flex h-screen">
+                    <div className="flex w-[25%] h-screen bg-gray-100 animate-[flyFromLeft_1s]">
                         <div className=" mx-auto mt-[20%] rounded-xl justify-center w-3/4 bg-[#F2F2F2] opacity-[0.7]">
                             <h2 className="text-[1.75vw]">Filters</h2>
                             <div>
@@ -222,11 +219,13 @@ const TeamsPage = ({ returnHome }) => {
                     </div>
 
                     {people?.length > 0 ? (
-                        <div className='ml-[25vw] h-screen w-3/4 justify-center flex flex-wrap bg-white'>
+                        <div className="w-full">
+                            <div className='flex h-screen w-full justify-center flex-wrap bg-white'>
 
-                            {people.map((person) => (
-                                <Card person={person} reveal={reveal} />
-                            ))}
+                                {people.map((person) => (
+                                    <Card person={person} reveal={reveal} />
+                                ))}
+                            </div>
                         </div>
                     ) : (
 
@@ -242,7 +241,7 @@ const TeamsPage = ({ returnHome }) => {
             )}
 
         </div>
-
+    </>
 
     );
 }

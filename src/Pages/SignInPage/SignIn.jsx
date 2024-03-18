@@ -3,11 +3,13 @@ import { FcGoogle } from "react-icons/fc";
 import { HiArrowSmallLeft } from "react-icons/hi2";
 import Register from "./Register"
 import { useState } from 'react'
+import Navbar from '../HomePage/Navbar.jsx';
 
-const SignIn = ({returnHome}) => {
+const SignIn = () => {
     var [page, setPage] = useState("");
     return(
         <>
+        <Navbar />
         {page == ""? 
         <div className='w-full h-screen flex items-start'> 
             <div className='relative w-1/2 h-full flex flex-col'>
@@ -20,9 +22,6 @@ const SignIn = ({returnHome}) => {
             <div className='w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between items-center'>
                 
                 <h1 className='w-full max-w-[500px] mx-auto text-xl text-[#bfb749] font-semibold'>CloudFusion.</h1>
-                <div onClick={returnHome} className='w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold'>
-                    <button className="flex rounded-md"><HiArrowSmallLeft className="w-[1.75vw] h-[100%]"/><span className="ml-[5%]">Back</span></button>
-                </div>
 
                 <div className='w-full flex flex-col max-w-[500px]'>
                     <div className='w-full flex flex-col mb-2'>
@@ -61,7 +60,7 @@ const SignIn = ({returnHome}) => {
             </div>
         </div>
         : 
-        <Register goBack = {setPage}/>
+        <Register/>
         }
         </>
     );

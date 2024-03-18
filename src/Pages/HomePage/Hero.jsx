@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactTyped } from "react-typed";
-
+import {Link} from 'react-router-dom';
 const Hero = ({links2}) => {
     return(
         <div className='text-[#000300]'>
@@ -13,7 +13,7 @@ const Hero = ({links2}) => {
                     <ReactTyped className='md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2' strings={['UI/UX','Backend','Cloud']} typeSpeed={120} backSpeed={140} loop/>
                 </div>
                     <p className='md:text-2xl text-xl font-bold text-gray-500'> Grow your business with results-orientated intelligent programmers.</p>
-                    <button onClick={links2} className='bg-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'> Get Started </button>
+                    <Link to='/signin' className='bg-[#bfb749] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'> Get Started </Link>
             </div>
         </div>
     )
