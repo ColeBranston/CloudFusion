@@ -7,6 +7,7 @@ import Settings from "./Pages/SettingsPage/Settings"
 import Payment from "./Pages/StripePage/Payment";
 import CheckoutForm from "./Pages/StripePage/CheckoutForm"; 
 import CompletionPage from "./Pages/StripePage/Completion"; 
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   const [page, setPage] = useState("Homepage")
@@ -47,4 +48,8 @@ function App() {
   );
 }
 
+<Routes>
+  <Route path="/" element={<HomePage />}></Route>
+
+</Routes>
 export default App;
