@@ -12,13 +12,9 @@ const Navbar = () => {
     };
     return (
         <div className='bg-white shadow-xl z-10'>
-<<<<<<< HEAD
-            <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-[#000300]'>
-                <Link to='/' className = 'w-1/3 text-3xl font-bold text-[#bfb749]'><img className="" src={Logo}/></Link>
-=======
             <div className='flex justify-between items-center h-24 md:max-w-[1250px] lg:max-w-[1500px]  mx-auto px-4 text-[#000300] overflow-hidden'>
                 <Link to='/' className = 'w-1/4 text-3xl font-bold text-[#bfb749]'><img src={Logo}/></Link>
->>>>>>> be0b5fbe584b51f7bad364a7b3966be2db2b4742
+
 
                 <div className = 'flex h-full text-right justify-center'>
                     <Link to='/teams' className = 'hidden md:block lg:block mr-5 ml-5 my-auto hover:animate-pulse'> Team </Link>
