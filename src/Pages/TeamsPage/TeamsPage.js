@@ -61,13 +61,12 @@ const TeamsPage = () => {
     const [chosen, setChosen] = useState("N/A");
     //Assigning the changing variables with their corresponding functions
     const [people, setPeople] = useState([
-        { Poster: Jack, Name: "Jack Branston", id: 1, Description: "Hi my name is Jack Branston. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Cole, Name: "Cole Branston", id: 1, Description: "Hi my name is Cole Branston. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
         { Poster: Obaid, Name: "Obaid", id: 2, Description: "Hi my name is Obaid. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
         { Poster: Ganesh, Name: "Ganesh", id: 2, Description: "Hi my name is Ganesh. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
         { Poster: Shivam, Name: "Shivam", id: 3, Description: "Hi my name is Shivam. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Joann, Name: "Joann", id: 4, Description: "Hi my name is Joann. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] }
-
+        { Poster: Joann, Name: "Joann", id: 4, Description: "Hi my name is Joann. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
+        { Poster: Jack, Name: "Jack Branston", id: 1, Description: "Hi my name is Jack Branston. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
+        { Poster: Cole, Name: "Cole Branston", id: 1, Description: "Hi my name is Cole Branston. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] }
     ]);
 
     const [filteredPeople, setFilteredPeople] = useState([]);
@@ -86,12 +85,7 @@ const TeamsPage = () => {
                         <button className="flex text-center  mt-[20%] mx-auto" onClick={() => setChosen("N/A")}><HiArrowSmallLeft className="w-[1.75vw] h-[100%] my-auto" /><span className="ml-[5%] text-[1.5vw]">Return</span></button>
                     </div>
                     <div className="w-[75%] text-center flex-col overflow-auto">
-                        <div className=" h-[38%] w-[80%] mx-auto">
-                            {/* Defining the image on the card */}
-                            {/* <img className="h-full w-[60%]" src={person.Poster !== "N/A" ? person.Poster: 'https://via.placeholder.com/400'} alt={person.Title}/>
-             */}
-                        </div>
-                        <div className="bg-[red] w-[75%] mx-auto">
+                        <div className="h-[38%] w-[80%] mx-auto justify-center flex mb-[7vw]">
                             <img src={chosen.Poster} className="rounded-full"></img>
                         </div>
                             <div className="bg-gray-300 text-left rounded-xl mx-auto w-[80%] h-[40%] animate-[flyFromBottom_1s]">
