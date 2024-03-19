@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
+import Logo from '../../Assets/Logo.png'
+
 const Navbar = () => {
 
     const [nav,setNav] = useState(true);
@@ -11,7 +13,7 @@ const Navbar = () => {
     return (
         <div className='bg-white shadow-xl z-10'>
             <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-[#000300]'>
-                <Link to='/' className = 'w-1/3 text-3xl font-bold text-[#bfb749]'>CloudFusion.</Link>
+                <Link to='/' className = 'w-1/3 text-3xl font-bold text-[#bfb749]'><img src={Logo}/></Link>
 
                 <div className = 'flex h-full text-right justify-center'>
                     <Link to='/teams' className = 'hidden md:block lg:block mr-5 ml-5 my-auto hover:animate-pulse'> Team </Link>
