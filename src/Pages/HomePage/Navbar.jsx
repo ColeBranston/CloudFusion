@@ -12,7 +12,7 @@ const Navbar = () => {
     };
     return (
         <div className='bg-white shadow-xl z-10'>
-            <div className='flex justify-between items-center h-24 md:max-w-[1250px] lg:max-w-[1500px]  mx-auto px-4 text-[#000300] overflow-hidden'>
+            <div className='flex justify-between items-center h-24 sm:max-w-[1000px] md:max-w-[1250px] lg:max-w-[1500px]  mx-auto px-4 text-[#000300] overflow-hidden'>
                 <Link to='/' className = 'w-1/4 text-3xl font-bold text-[#bfb749]'><img src={Logo}/></Link>
 
                 <div className = 'flex h-full text-right justify-center'>
