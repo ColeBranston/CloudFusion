@@ -8,7 +8,8 @@ const Card =({person, reveal}) => {
                 <img className="h-full w-auto rounded-full" src={person.Poster !== "N/A" ? person.Poster: ''} alt={person.Title}/>     
             </div>
             <div className="bg-gray-100 h-[25%]">
-                <h2 className="mx-auto color-black text-[2vw]">{person.Name}</h2>
+                <h2 className="pt-5 mx-auto color-black text-[25px] ">{person.Name}</h2>
+                <p className="text-[15px]">{person.Speciality}</p>
             </div>
         </div>
     );
