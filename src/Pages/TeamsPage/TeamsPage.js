@@ -68,12 +68,18 @@ const TeamsPage = () => {
         { Poster: Jack, Name: "Jack Branston", id: 1, Description: "Hi my name is Jack Branston. I'm a hard working first year engineering student currently studying at Western University", Skills: ['Negotiation', 'Stress management', 'Patience', 'Positivity', 'Self-motivation'], Speciality: "Web-Developer" },
         { Poster: Cole, Name: "Cole Branston", id: 1, Description: "Hi my name is Cole Branston. I'm a first year engineering student currently studying at Western University", Skills: ['Integrity', 'Initiative', 'Collaboration', 'Empowerment', 'Cultural competence'], Speciality: "Front-End Developer" }
     ]);
-    const detect = () => console.log("This is working")
-    const [filteredPeople, setFilteredPeople] = useState([]);
+
+    const [filteredPeople, setFilteredPeople] = useState(people);
     const reveal = (person) => {
         setChosen(person)
     }
-
+    var count = 0;
+    const filterList = (event, x) => {
+        var filtered = people;
+        if (event.target.checked) {filtered = people.filter((person) => person.Speciality === x);}
+        
+        setFilteredPeople(filtered);
+    };
     return (
         <div>
         <Navbar />
@@ -119,27 +125,27 @@ const TeamsPage = () => {
                             <div>
                                 <div className="">
                                     <div className="flex justify-left mt-[0px]">
-                                        <input type="checkbox" onchange={detect} className="size-[1.5vw] my-auto"></input>
+                                        <input type="checkbox" onChange={(event) =>  filterList(event, "Back-End Developer")} className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 justify-left text-[1.3vw]">Back-End Developer</p>
                                     </div>
                                     <div className="flex justify-left mt-[15px]">
-                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <input type="checkbox" onChange={(event) => filterList(event, "API Developer")} className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">API Developer</p>
                                     </div>
                                     <div className="flex justify-left mt-[15px]">
-                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <input type="checkbox" onChange={(event) =>  filterList(event, "Project Manager")} className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Project Manager</p>
                                     </div>
                                     <div className="flex justify-left mt-[15px]">
-                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <input type="checkbox" onChange={(event) => filterList(event, "Web-Developer")} className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Web-Developer</p>
                                     </div>
                                     <div className="flex justify-left mt-[15px]">
-                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <input type="checkbox" onChange={(event) => filterList(event, "Front-End Developer")} className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Front-End Developer</p>
                                     </div>
                                     <div className="flex justify-left mt-[15px]">
-                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
+                                        <input type="checkbox" onChange={(event) => filterList(event, "Full Stack Developer")}className="size-[1.5vw] my-auto"></input>
                                         <p className="ml-5 text-[1.3vw]">Full Stack Developer</p>
                                     </div>
                                 </div>
@@ -153,7 +159,7 @@ const TeamsPage = () => {
                             <div className="overflow-scroll py-10 w-[75%]">
                                 <div className='flex h-full w-full justify-center flex-wrap bg-white w-full'>
 
-                                    {people.map((person) => (
+                                    {filteredPeople.map((person) => (
                                         <Card person={person} reveal={reveal} />
                                     ))}
                                     <div className="w-full pb-[15%]"></div>
