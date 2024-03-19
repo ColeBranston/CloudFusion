@@ -61,14 +61,14 @@ const TeamsPage = () => {
     const [chosen, setChosen] = useState("N/A");
     //Assigning the changing variables with their corresponding functions
     const [people, setPeople] = useState([
-        { Poster: Obaid, Name: "Obaid", id: 2, Description: "Hi my name is Obaid. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Ganesh, Name: "Ganesh", id: 2, Description: "Hi my name is Ganesh. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Shivam, Name: "Shivam", id: 3, Description: "Hi my name is Shivam. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Joann, Name: "Joann", id: 4, Description: "Hi my name is Joann. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Jack, Name: "Jack Branston", id: 1, Description: "Hi my name is Jack Branston. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] },
-        { Poster: Cole, Name: "Cole Branston", id: 1, Description: "Hi my name is Cole Branston. I'm a hard working student from Western", Skills: ['Hard working', 'Collaborative', 'Creative', 'Innovative', 'Leader'] }
+        { Poster: Obaid, Name: "Obaid", id: 2, Description: "Hi my name is Obaid. I'm a hard working student currently studying software engineering at Western University", Skills: ['Communication', 'Teamwork', 'Adaptability', 'Problem-solving', 'Time management'], Speciality: "Full Stack Developer"},
+        { Poster: Ganesh, Name: "Ganesh", id: 2, Description: "Hi my name is Ganesh. I'm in my 3rd year of computer science at Western University", Skills: ['Leadership', 'Empathy', 'Conflict resolution', 'Networking', 'Emotional intelligence'], Speciality: "Project Manager" },
+        { Poster: Shivam, Name: "Shivam", id: 3, Description: "Hi my name is Shivam. I'm in my 3rd year of computer science at Western University", Skills: ['Creativity', 'Flexibility', 'Open-mindedness', 'Resilience', 'Critical thinking'], Speciality: "Back-End Developer" },
+        { Poster: Joann, Name: "Joann", id: 4, Description: "Hi my name is Joann. I'm a 2nd year student currently pursuing a dual degree in MIT and computer science at Western University", Skills: ['Attention to detail', 'Organization', 'Decision making', 'Active listening', 'Interpersonal skills'], Speciality: "API Developer" },
+        { Poster: Jack, Name: "Jack Branston", id: 1, Description: "Hi my name is Jack Branston. I'm a hard working first year engineering student currently studying at Western University", Skills: ['Negotiation', 'Stress management', 'Patience', 'Positivity', 'Self-motivation'], Speciality: "Web-Developer" },
+        { Poster: Cole, Name: "Cole Branston", id: 1, Description: "Hi my name is Cole Branston. I'm a first year engineering student currently studying at Western University", Skills: ['Integrity', 'Initiative', 'Collaboration', 'Empowerment', 'Cultural competence'], Speciality: "Front-End Developer" }
     ]);
-
+    const detect = () => console.log("This is working")
     const [filteredPeople, setFilteredPeople] = useState([]);
     const reveal = (person) => {
         setChosen(person)
@@ -118,29 +118,29 @@ const TeamsPage = () => {
                             <h2 className="text-[1.75vw] py-10">Filters</h2>
                             <div>
                                 <div className="">
-                                    <div className="flex justify-left">
-                                        <input type="checkbox" className="size-[1.5vw] my-auto"></input>
-                                        <p className="ml-5 justify-left text-[1.3vw]">Jack Branston</p>
+                                    <div className="flex justify-left mt-[0px]">
+                                        <input type="checkbox" onchange={detect} className="size-[1.5vw] my-auto"></input>
+                                        <p className="ml-5 justify-left text-[1.3vw]">Back-End Developer</p>
                                     </div>
-                                    <div className="flex justify-left">
+                                    <div className="flex justify-left mt-[15px]">
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
-                                        <p className="ml-5 text-[1.3vw]">Cole Branston</p>
+                                        <p className="ml-5 text-[1.3vw]">API Developer</p>
                                     </div>
-                                    <div className="flex justify-left">
+                                    <div className="flex justify-left mt-[15px]">
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
-                                        <p className="ml-5 text-[1.3vw]">Obaid</p>
+                                        <p className="ml-5 text-[1.3vw]">Project Manager</p>
                                     </div>
-                                    <div className="flex justify-left">
+                                    <div className="flex justify-left mt-[15px]">
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
-                                        <p className="ml-5 text-[1.3vw]">Ganesh</p>
+                                        <p className="ml-5 text-[1.3vw]">Web-Developer</p>
                                     </div>
-                                    <div className="flex justify-left">
+                                    <div className="flex justify-left mt-[15px]">
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
-                                        <p className="ml-5 text-[1.3vw]">Rad</p>
+                                        <p className="ml-5 text-[1.3vw]">Front-End Developer</p>
                                     </div>
-                                    <div className="flex justify-left">
+                                    <div className="flex justify-left mt-[15px]">
                                         <input type="checkbox" className="size-[1.5vw] my-auto"></input>
-                                        <p className="ml-5 text-[1.3vw]">Shivam</p>
+                                        <p className="ml-5 text-[1.3vw]">Full Stack Developer</p>
                                     </div>
                                 </div>
                                 <br />

@@ -15,6 +15,7 @@ const Navbar = () => {
             <div className='flex justify-between items-center h-24 sm:max-w-[1000px] md:max-w-[1250px] lg:max-w-[1500px]  mx-auto px-4 text-[#000300] overflow-hidden'>
                 <Link to='/' className = 'w-1/4 text-3xl font-bold text-[#bfb749]'><img src={Logo}/></Link>
 
+
                 <div className = 'flex h-full text-right justify-center'>
                     <Link to='/teams' className = 'hidden md:block lg:block mr-5 ml-5 my-auto hover:animate-pulse'> Team </Link>
                     <Link to='/signin' className = 'hidden md:block lg:block mr-5 ml-5 my-auto hover:animate-pulse'> Signup/Login </Link>
