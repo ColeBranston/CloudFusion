@@ -1,1 +1,1 @@
-A Full Stack student freelancing website for companies to contact students to meet there software development needs using React, TailwindCSS, integrated Stripe payment platform, Connecting the front-end to the back-end and database using DynamoDB, Cloudfront, RDS, EC2, and S3.
+A Full Stack student freelancing website for companies to contract students to meet there software development needs using React, TailwindCSS, integrated Stripe payment platform, Connecting the front-end to the back-end and database using DynamoDB, Cloudfront, RDS, EC2, and S3.
